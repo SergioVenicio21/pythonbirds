@@ -3,6 +3,8 @@
 
 
 class Pessoa:
+    olhos = 2
+
     def __init__(self, nome, idade, *filhos):
         self.nome = nome
         self.idade = idade
