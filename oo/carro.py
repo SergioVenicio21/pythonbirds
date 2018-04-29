@@ -6,21 +6,26 @@ EX:
     >>> motor = Motor()
     >>> direcao = Direcao()
     >>> carro = Carro(direcao, motor)
-    >>> carro.motor.acelerar()
-    >>> print(carro.direcao.calcular_direcao())
+    >>> carro.acelerar()
+    >>> print(carro.calcular_direcao())
     norte
-    >>> carro.direcao.virar_direita()
-    >>> print(carro.direcao.calcular_direcao())
+    >>> carro.virar_direita()
+    >>> print(carro.calcular_direcao())
     leste
-    >>> carro.direcao.virar_direita()
-    >>> print(carro.direcao.calcular_direcao())
+    >>> carro.virar_direita()
+    >>> print(carro.calcular_direcao())
     sul
-    >>> carro.direcao.virar_direita()
-    >>> print(carro.direcao.calcular_direcao())
+    >>> carro.virar_direita()
+    >>> print(carro.calcular_direcao())
     oeste
-    >>> carro.direcao.virar_esquerda()
-    >>> print(carro.direcao.calcular_direcao())
+    >>> carro.virar_esquerda()
+    >>> print(carro.calcular_direcao())
     sul
+    >>> carro.velocidade()
+    1
+    >>> carro.freiar()
+    >>> carro.velocidade()
+    0
 """
 
 class Direcao:
@@ -49,7 +54,7 @@ class Direcao:
 class Motor:
     def __init__(self):
         self.velocidade = 0
-
+    
     def acelerar(self):
         self.velocidade += 1
 
@@ -61,6 +66,24 @@ class Carro:
     def __init__(self, direcao, motor):
         self.direcao = direcao
         self.motor = motor
+
+    def acelerar(self):
+        self.motor.acelerar()
+
+    def freiar(self):
+        self.motor.freiar()
+
+    def virar_direita(self):
+        self.direcao.virar_direita()
+
+    def virar_esquerda(self):
+        self.direcao.virar_esquerda()
+
+    def calcular_direcao(self):
+        return self.direcao.calcular_direcao()
+
+    def velocidade(self):
+        return self.motor.velocidade
 
 
 if __name__ == '__main__':
