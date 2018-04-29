@@ -24,28 +24,23 @@ EX:
 """
 
 class Direcao:
+    ORIENTACAO_DIR = {
+        'norte': 'leste', 'leste': 'sul',
+        'sul': 'oeste', 'oeste': 'norte'
+    }
+    ORIENTACAO_ESQ = {
+        'norte': 'oeste', 'leste': 'norte',
+        'sul': 'leste', 'oeste': 'sul'
+    }
     def __init__(self):
         self.valor = 'norte'
 
     def virar_direita(self):
-        if self.valor == 'norte':
-            self.valor = 'leste'
-        elif self.valor == 'leste':
-            self.valor = 'sul'
-        elif self.valor == 'sul':
-            self.valor = 'oeste'
-        elif self.valor == 'oeste':
-            self.valor = 'norte'
+        self.valor = self.ORIENTACAO_DIR[self.valor]
 
     def virar_esquerda(self):
-        if self.valor == 'norte':
-            self.valor = 'oeste'
-        elif self.valor == 'oeste':
-            self.valor = 'sul'
-        elif self.valor == 'sul':
-            self.valor = 'leste'
-        elif self.valor == 'leste':
-            self.valor = 'norte'
+        self.valor = self.ORIENTACAO_ESQ[self.valor]
+
 
     def calcular_direcao(self):
         return self.valor
@@ -59,10 +54,8 @@ class Motor:
         self.velocidade += 1
 
     def freiar(self):
-        if self.velocidade >= 2:
-            self.velocidade -= 2
-        else:
-            self.velocidade = (self.velocidade - self.velocidade)
+        self.velocidade -= 2
+        self.velocidade = max(0, self.velocidade)
 
 class Carro:
     def __init__(self, direcao, motor):
