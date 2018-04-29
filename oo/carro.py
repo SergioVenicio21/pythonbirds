@@ -1,6 +1,28 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+"""
+EX:
+    >>> motor = Motor()
+    >>> direcao = Direcao()
+    >>> carro = Carro(direcao, motor)
+    >>> carro.motor.acelerar()
+    >>> print(carro.direcao.calcular_direcao())
+    norte
+    >>> carro.direcao.virar_direita()
+    >>> print(carro.direcao.calcular_direcao())
+    leste
+    >>> carro.direcao.virar_direita()
+    >>> print(carro.direcao.calcular_direcao())
+    sul
+    >>> carro.direcao.virar_direita()
+    >>> print(carro.direcao.calcular_direcao())
+    oeste
+    >>> carro.direcao.virar_esquerda()
+    >>> print(carro.direcao.calcular_direcao())
+    sul
+"""
+
 class Direcao:
     def __init__(self):
         self.valor = 'norte'

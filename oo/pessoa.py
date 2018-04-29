@@ -4,14 +4,24 @@
 
 class Pessoa:
     olhos = 2
+    pessoas = 0
 
     def __init__(self, nome, idade, *filhos):
         self.nome = nome
         self.idade = idade
         self.filhos = list(filhos)
+        Pessoa.pessoas += 1
 
     def comprimentar(self):
         return f'Olá {id(self)}'
+
+    @staticmethod
+    def metodo_estatico():
+        return True
+
+    @classmethod
+    def contador(cls):
+        return cls.pessoas
 
 
 if __name__ == '__main__':
@@ -25,3 +35,4 @@ if __name__ == '__main__':
     for filho in p.filhos:
         print(filho.nome)
     print(id(p))
+    print(Pessoa.contador())
