@@ -2,8 +2,8 @@ from unittest import TestCase
 from oo.carro import Motor, Direcao
 
 
-class CarroTesteCase(TestCase):
-    def teste_velocidade_inicial(self):
+class CarroTestCase(TestCase):
+    def test_velocidade_inicial(self):
         motor = Motor()
         self.assertEqual(0, motor.velocidade)
 

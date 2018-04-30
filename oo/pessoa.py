@@ -13,7 +13,7 @@ class Pessoa:
         Pessoa.pessoas += 1
 
     def comprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá, meu nome é {self.nome}'
 
     @staticmethod
     def metodo_estatico():
@@ -25,7 +25,14 @@ class Pessoa:
 
 
 class Homem(Pessoa):
-    pass
+    def comprimentar(self):
+        comprimentar = super().comprimentar()
+        return f'{comprimentar}. Apertado de mão'
+
+
+class Mutante(Pessoa):
+    olhos = 3
+
 
 if __name__ == '__main__':
     nome = input('Digite seu nome: ')
@@ -35,8 +42,4 @@ if __name__ == '__main__':
     p5 = Pessoa('teste4', 23)
     p = Homem(nome, 23, p2, p3, p4, p5)
     print(p.comprimentar())
-    for filho in p.filhos:
-        print(filho.nome)
-    print(id(p))
-    print(Pessoa.contador())
-    print(isinstance(p, Pessoa))
+    print(p2.comprimentar())
