@@ -40,4 +40,3 @@ if __name__ == '__main__':
     print(id(p))
     print(Pessoa.contador())
     print(isinstance(p, Pessoa))
-se
