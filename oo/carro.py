@@ -28,6 +28,7 @@ EX:
     0
 """
 
+
 class Direcao:
     ORIENTACAO_DIR = {
         'norte': 'leste', 'leste': 'sul',
@@ -37,6 +38,7 @@ class Direcao:
         'norte': 'oeste', 'leste': 'norte',
         'sul': 'leste', 'oeste': 'sul'
     }
+
     def __init__(self):
         self.valor = 'norte'
 
@@ -45,7 +47,6 @@ class Direcao:
 
     def virar_esquerda(self):
         self.valor = self.ORIENTACAO_ESQ[self.valor]
-
 
     def calcular_direcao(self):
         return self.valor
@@ -61,6 +62,7 @@ class Motor:
     def freiar(self):
         self.velocidade -= 2
         self.velocidade = max(0, self.velocidade)
+
 
 class Carro:
     def __init__(self, direcao, motor):
